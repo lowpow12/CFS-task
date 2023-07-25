@@ -57,7 +57,11 @@ class FeedbackController extends Controller
     }
     public function index()
     {
-        $feedbacks = $this->feedbacks;
-        return view('feedbacks.index', ['tasks' => $feedbacks]);
+        $pageTitle = 'Feedback List'; // Ditambahkan
+        
+        return view('feedbacks.index', [
+            'pageTitle' => $pageTitle, //Ditambahkan
+            
+        ]);
     }
 }

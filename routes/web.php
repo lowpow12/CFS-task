@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::prefix('feedbacks')
     ->name('feedbacks.')
-    ->controller(FeedbackkController::class)
+    ->controller(FeedbackController::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('create/{status?}', 'create')->name('create');

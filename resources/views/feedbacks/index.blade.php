@@ -1,31 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.master')
 
-<head>
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="{{ asset('style.css') }}">
-  <title>FeedbacksList</title>
-</head>
+@section('pageTitle', $pageTitle)
 
-<body>
+@section('main')
   <div class="task-list-container">
     <h1 class="task-list-heading">Feedbacks List</h1>
+    
+  
+  <div>
 
     <div class="task-list-table-head">
-      <div class="task-list-header-task-name">Name</div>
+      <div class="task-list-header-task-name">Sender</div>
       <div class="task-list-header-detail">Feedbacks</div>
-      <div class="task-list-header-due-date">Due Date</div>
-      <div class="task-list-header-progress">Progress</div>
+      <div class="task-list-header-due-date">Comments</div>
+      <div class="task-list-header-progress">Media</div>
     </div>
 
     <div class="table-body">
       <div class="table-body-task-name">
-        <span class="material-icons" >
-          check_circle
-        </span>
         First Task
       </div>
       <div class="table-body-detail">This is First Task</div>
@@ -33,6 +25,4 @@
       <div class="table-body-progress">In Progress</div>
     </div>
   </div>
-</body>
-
-</html>
+@endsection
