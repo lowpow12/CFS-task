@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('sender');
             $table->text('feedbacks');
             $table->text('comments')->nullable();

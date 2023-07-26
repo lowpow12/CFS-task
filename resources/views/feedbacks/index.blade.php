@@ -16,13 +16,17 @@
       <div class="task-list-header-progress">Media</div>
     </div>
 
-    <div class="table-body">
-      <div class="table-body-task-name">
-        First Task
+    @foreach ($feedback as $id => $feedback)
+      <div class="table-body">
+        <div class="table-body-task-name">
+          {{ $feedback->sender }}
+        </div>
+        <div class="table-body-detail"> {{ $feedback->feedbacks }} </div>
+        <div class="table-body-due-date"> {{ $feedback->comments }} </div>
+        <a href="{{ route('feedbacks.edit', ['id' => $feedback->id]) }}">Edit</a> &nbsp;
+        <a href="{{ route('feedbacks.delete', ['id' => $feedback->id]) }}">Delete</a>
+        
       </div>
-      <div class="table-body-detail">This is First Task</div>
-      <div class="table-body-due-date">2023-07-19</div>
-      <div class="table-body-progress">In Progress</div>
-    </div>
+    @endforeach
   </div>
 @endsection
