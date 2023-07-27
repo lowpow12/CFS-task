@@ -47,9 +47,17 @@ class FeedbackController extends Controller
             'comments' => $request->comments,
         ]);
 
-        return redirect()->route('feedbacks.index');
+        return redirect()->route('feedbacks.wait');
     }
 
+    public function wait()//
+    {
+        $pageTitle = 'Submitting Feedback';
+        
+
+    return view('feedbacks.wait', ['pageTitle' => $pageTitle]);
+    }
+    
     public function edit($id)//
     {
             $pageTitle = 'Edit Feedback';
@@ -85,4 +93,6 @@ class FeedbackController extends Controller
         $feedback->delete();
         return redirect()->route('feedbacks.index');
     }
+
+    
 }

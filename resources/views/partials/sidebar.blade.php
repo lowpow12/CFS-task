@@ -5,9 +5,9 @@
     <p class="sidebar-text">Home</p>
   </a>
   <!-- Diperbarui -->
-  <a class="sidebar-link" href="{{ route('feedbacks.index') }}">
+  <a class="sidebar-link" href="{{ route('auth.login') }}">
     <span class="material-icons sidebar-icon">list</span>
-    <p class="sidebar-text">Task List</p>
+    <p class="sidebar-text">Feedback List</p>
   </a>
 </div>
 </div>
