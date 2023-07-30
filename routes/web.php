@@ -29,7 +29,9 @@ Route::prefix('feedbacks')
         Route::get('{id}/edit', 'edit')->name('edit');
         Route::put('{id}/edit', 'update')->name('update');
         Route::get('{id}/delete', 'delete')->name('delete');
-        Route::delete('{id}/delete', 'destroy')->name('destroy'); 
+        Route::delete('{id}/delete', 'destroy')->name('destroy');
+        Route::get('upload', 'upload')->name('upload');
+        Route::get('upload/process', 'proses_upload')->name('proses_upload'); 
     });
 
     Route::name('auth.')
@@ -41,3 +43,5 @@ Route::prefix('feedbacks')
         Route::post('login', 'login')->name('login');
         Route::post('logout', 'logout')->name('logout');
     });
+
+    

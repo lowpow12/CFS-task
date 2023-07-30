@@ -13,12 +13,14 @@
         <a
           type="button"
           class="form-button"
+          style="text-decoration: none;"
           href="{{ route('feedbacks.create') }}"
         >
           Yes, make a new feedback</a>  &nbsp;
           <a
           type="submit"
           class="form-button"
+          style="text-decoration: none;"
           href="{{ route('home') }}"
         >
           No, just want to make this feedback</a>

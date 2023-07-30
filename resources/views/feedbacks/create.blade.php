@@ -26,8 +26,8 @@
 
     <div class="form-item">
       <label>Media:</label>
-      <textarea class="form-text-area" value="{{old('comments') }}" name="comments"></textarea>
-    </div>
+      <input type="file" name="file">
+					</div>
     
     <button type="submit" class="form-button">Submit</button>
     

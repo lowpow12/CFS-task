@@ -40,7 +40,7 @@ class AuthController extends Controller
             'password' => $request->password,
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('feedbacks.index');
     }
 
     public function loginForm()//
@@ -62,7 +62,7 @@ class AuthController extends Controller
     $credentials = $request->only('email', 'password');
 
     if (Auth::attempt($credentials)) {
-        return redirect()->route('home');
+        return redirect()->route('feedbacks.index');
     }
 
     return redirect()

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feedback;
+use App\Models\Gambar;
 use Illuminate\Http\Request;
 
 class FeedbackController extends Controller
@@ -22,12 +23,14 @@ class FeedbackController extends Controller
         ]);
     }
 
+    
+    
     public function create()//
     {
         $pageTitle = 'Create Feedback';
-        
+        $gambar = Feedback::get();
 
-    return view('feedbacks.create', ['pageTitle' => $pageTitle]);
+    return view('feedbacks.create', ['pageTitle' => $pageTitle, 'gambar' => $gambar]);
     }
 
     public function store(Request $request)//
@@ -37,14 +40,25 @@ class FeedbackController extends Controller
                 'sender' => 'required',
                 'feedbacks' => 'required',
                 'comments' => 'required',
+                'file' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
             ],
             $request->all()
         );
+
+       // menyimpan data file yang diupload ke variabel $file
+		$file = $request->file('file');
+ 
+		$nama_file = time()."_".$file->getClientOriginalName();
+ 
+      	        // isi dengan nama folder tempat kemana file diupload
+		$tujuan_upload = 'data_file';
+		$file->move($tujuan_upload,$nama_file);
         
         Feedback::create([
             'sender' => $request->sender,
             'feedbacks' => $request->feedbacks,
             'comments' => $request->comments,
+            'file' => $nama_file,
         ]);
 
         return redirect()->route('feedbacks.wait');

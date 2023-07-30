@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Feedback extends Model
+class Gambar extends Model
 {
-    use HasFactory;
-    protected $fillable = ['sender', 'feedbacks', 'comments', 'file'];
+    protected $table = "gambar";
+ 
+    protected $fillable = ['file','keterangan'];
 }
