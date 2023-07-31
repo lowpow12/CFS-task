@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('sender');
             $table->text('feedbacks');
             $table->text('comments')->nullable();
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

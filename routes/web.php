@@ -20,12 +20,10 @@ Route::get('/', function () {
 
 Route::prefix('feedbacks')
     ->name('feedbacks.')
+    ->middleware('auth')
     ->controller(FeedbackController::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
-        Route::get('create/{status?}', 'create')->name('create');
-        Route::post('/', 'store')->name('store');
-        Route::get('/submitting', 'wait')->name('wait');
         Route::get('{id}/edit', 'edit')->name('edit');
         Route::put('{id}/edit', 'update')->name('update');
         Route::get('{id}/delete', 'delete')->name('delete');
@@ -33,6 +31,18 @@ Route::prefix('feedbacks')
         Route::get('upload', 'upload')->name('upload');
         Route::get('upload/process', 'proses_upload')->name('proses_upload'); 
     });
+
+    Route::prefix('feedbacks')
+    ->name('feedbacks.')
+    ->controller(FeedbackController::class)
+    ->group(function () {
+        Route::get('create/{status?}', 'create')->name('create');
+        Route::post('/', 'store')->name('store');
+        Route::get('/submitting', 'wait')->name('wait');
+        Route::get('upload', 'upload')->name('upload');
+        Route::get('upload/process', 'proses_upload')->name('proses_upload'); 
+    });
+   
 
     Route::name('auth.')
     ->controller(AuthController::class)

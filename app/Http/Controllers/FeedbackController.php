@@ -39,7 +39,7 @@ class FeedbackController extends Controller
             [
                 'sender' => 'required',
                 'feedbacks' => 'required',
-                'comments' => 'required',
+                'comments',
                 'file' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
             ],
             $request->all()

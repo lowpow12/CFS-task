@@ -5,7 +5,16 @@
 @section('main')
 <div class="form-container">
   <h1 class="form-title">{{ $pageTitle }}</h1>
-  <form class="form" method="POST" action="{{ route('feedbacks.store') }}">
+  @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+  <form class="form" method="POST" action="{{ route('feedbacks.store') }}" enctype="multipart/form-data">
   @csrf  
   <div class="form-item">
       <label>Name:</label>

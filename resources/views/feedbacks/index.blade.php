@@ -27,7 +27,7 @@
 						<tr>
 							<td><img width="150px" src="{{ url('/data_file/'.$feedback->file) }}"></td>
 </tr>
-
+&nbsp;
         <a href="{{ route('feedbacks.edit', ['id' => $feedback->id]) }}">Edit</a> &nbsp;
         <a href="{{ route('feedbacks.delete', ['id' => $feedback->id]) }}">Delete</a>
         
