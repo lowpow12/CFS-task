@@ -40,19 +40,20 @@ class FeedbackController extends Controller
                 'sender' => 'required',
                 'feedbacks' => 'required',
                 'comments',
-                'file' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+                'file' => 'nullable|file|image|mimes:jpeg,png,jpg|max:2048',
             ],
             $request->all()
         );
 
-       // menyimpan data file yang diupload ke variabel $file
-		$file = $request->file('file');
- 
-		$nama_file = time()."_".$file->getClientOriginalName();
- 
-      	        // isi dengan nama folder tempat kemana file diupload
-		$tujuan_upload = 'data_file';
-		$file->move($tujuan_upload,$nama_file);
+        if ($request->hasFile('file')) {
+            
+            $file = $request->file('file');
+            $nama_file = time() . "_" . $file->getClientOriginalName();
+            $tujuan_upload = 'data_file';
+            $file->move($tujuan_upload, $nama_file);
+        } else {
+            $nama_file = null;
+        }
         
         Feedback::create([
             'sender' => $request->sender,

@@ -14,14 +14,12 @@
         </ul>
     </div>
 @endif
-  <form class="form" method="POST" action="{{ route('feedbacks.store') }}">
+  <form class="form" method="POST" action="{{ route('feedbacks.update', ['id' => $feedback->id]) }}">
+  @method('PUT')
   @csrf  
   <div class="form-item">
       <label>Name:</label>
       <input class="form-input" type="text" value="{{old('sender', $feedback->sender) }}" name="sender">
-      @error('name')
-          <div class="alert-danger">{{ $message }}</div>
-      @enderror
     </div>
 
     <div class="form-item">
